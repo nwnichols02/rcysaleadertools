@@ -6,13 +6,14 @@ import {Route, Routes} from 'react-router-dom';
 import Home from './components/Home';
 import Callings from './components/Callings';
 import Login from './components/Login';
-import Agendas from './components/Agendas';
+import Agendas from './components/Agendas/Agendas';
 import SignUp from './components/SignUp';
 import RecentlySpake from './components/RecentlySpake';
-import PrayerList from './components/PrayerList';
+import PrayerList from './components/Prayers/PrayerList';
 import Settings from './components/Settings';
 import NewCalling from './components/NewCalling';
 import EditCalling from './components/EditCalling';
+import AddPrayer from './components/Prayers/AddPrayers';
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
           <Route path='/signup' element={<SignUp/>}></Route>
           <Route path='/recentlyspake' element={<RecentlySpake/>}></Route>
           <Route path='/prayerlist' element={<PrayerList/>}></Route>
+          <Route path='/prayerlist/add' element={<AddPrayer/>}></Route>
           <Route path='/settings' element={<Settings/>}></Route>
           <Route path='/newcalling' element={<NewCalling/>}></Route>
           <Route path='/editcalling' element={<EditCalling/>}></Route>
