@@ -13,6 +13,7 @@ export default function AddPrayer() {
   const [prayer, setPrayer] = useState([]);
   const [formValues, setFormValues] = useState(initialFormValues);
   const navigate = useNavigate();
+
   const prayerRoute = () => {
     navigate("/prayerlist");
   };
@@ -30,6 +31,7 @@ export default function AddPrayer() {
       .then((res) => {
         setPrayer([res.data, prayer]);
         setFormValues(initialFormValues);
+        navigate('/prayerlist')
         console.log(res.data);
       })
       .catch((err) => {
@@ -52,21 +54,7 @@ export default function AddPrayer() {
     submitForm();
   };
 
-//   const allPrayers = axios
-//     .get(`http://localhost:9000/api/prayers`)
-//     .then((res) => {
-//       return res.data;
-//     })
-//     .catch((err) => console.err(`ERROR: ${err}`));
 
-//   const patchRequest = (prayer_id) => {
-//     axios
-//       .put(`http://localhost:9000/api/prayers/${prayer_id}`)
-//       .then((res) => {
-//         // setFormValues(allPrayers ? prayer_id = {id: formValues.prayer_id});
-//       })
-//       .catch((err) => console.log(err));
-//   };
 
   return (
     <div>

@@ -33,6 +33,7 @@ export default function EditCustomer(props) {
       })
       .then((res) => {
         setFormValues(initialFormValues);
+        prayerRoute()
       })
       .catch((err) => console.log(err));
   };

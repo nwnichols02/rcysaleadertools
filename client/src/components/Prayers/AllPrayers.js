@@ -1,14 +1,17 @@
 import React from "react";
 import { useNavigate } from "react-router";
-import AddPrayer from "./AddPrayers";
 import { Link } from "react-router-dom";
+import { useState } from "react";
+import DeletePrayerModal from './DeletePrayerModal';
 
 const AllPrayers = (props) => {
+  const [openModal, setOpenModal] = useState(false)
   const navigate = useNavigate();
 
   const editPrayerRoute = () => {
     navigate("/prayerlist/edit/:id");
   };
+  
   return (
     <div>
       {props.allPrayers.map((prayer) => {
@@ -20,7 +23,12 @@ const AllPrayers = (props) => {
             <Link to={`edit/${prayer.prayer_id}`}>
               <button>Edit</button>
             </Link>
-            {/* onClick={editPrayerRoute} */}
+            <Link to={`delete/${prayer.prayer_id}`}>
+            <button onClick={() => setOpenModal(true)}>Delete</button>
+                {openModal && <DeletePrayerModal closeModal={setOpenModal} id={prayer.prayer_id}/>} 
+            </Link>
+            {/* <button>Delete</button> */}
+            {/* {/* onClick={editPrayerRoute} */}
           </div>
         );
       })}

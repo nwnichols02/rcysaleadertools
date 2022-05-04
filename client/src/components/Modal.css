@@ -2,7 +2,7 @@
     width: 100vw;
     height: 100vh;
     background-color: rgba(200, 200, 200);
-    position: fixed;
+    position: flex;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -27,7 +27,7 @@
   
   .titleCloseBtn {
     display: flex;
-    justify-content: flex-end;
+    justify-content: flex-sta;
   }
   
   .titleCloseBtn button {
