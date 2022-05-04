@@ -12,25 +12,25 @@ exports.seed = function (knex) {
           prayer_id: 1,
           prayer_name_opening: "Kenley K",
           prayer_name_closing: "Kenny O",
-          prayer_date: "01/09/2022",
+          prayer_date: "2022-01-09",
         },
         {
           prayer_id: 2,
           prayer_name_opening: "Sydnee C",
           prayer_name_closing: "Karoly D",
-          prayer_date: "01/23/2022",
+          prayer_date: "2022-01-23",
         },
         {
           prayer_id: 3,
           prayer_name_opening: "Abby S",
           prayer_name_closing: "Cole N",
-          prayer_date: "02/06/2022",
+          prayer_date: "2022-02-06",
         },
         {
           prayer_id: 4,
           prayer_name_opening: "Katie C",
           prayer_name_closing: "Preston C",
-          prayer_date: "02/13/2022",
+          prayer_date: "2022-02-13",
         },
       ]);
     });

@@ -3,20 +3,21 @@ import { useNavigate } from "react-router";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import AllPrayers from "./AllPrayers";
-import AddPrayer from "./AddPrayers";
+import EditPrayers from './EditPrayers';
 
 export default function PrayerList() {
   const [prayers, getPrayers] = useState([]);
-
-
 
   const navigate = useNavigate();
   const homeRoute = () => {
     navigate("/home");
   };
   const addPrayerRoute = () => {
-    navigate('/prayerlist/add')
-}
+    navigate("/prayerlist/add");
+  };
+  const editPrayerRoute = () => {
+    navigate("/prayerlist/edit/:id");
+  };
   const url = "http://localhost:9000";
 
   const getAllPrayers = () => {
@@ -39,25 +40,10 @@ export default function PrayerList() {
       <h1>PrayerList page</h1>
       <nav className="prayernavbtns">
         <button onClick={addPrayerRoute}>Add Prayers</button>
-        <button>Edit Prayers</button>
       </nav>
       <div className="tableContainer">
         <AllPrayers allPrayers={prayers} />
-        {/* <AddPrayer/> */}
-        {/* <table>
-          <thread>
-            <th>Name</th>
-            <th>Date</th>
-          </thread>
-          <tbody>
-            <td>Nate</td>
-            <td>1/1/2201</td>
-          </tbody>
-          <tbody>
-            <td>Joe</td>
-            <td>2/2/2200</td>
-          </tbody>
-        </table> */}
+        <EditPrayers allPrayers={prayers} />
       </div>
     </div>
   );

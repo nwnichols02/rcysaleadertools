@@ -14,8 +14,13 @@ async function addPrayer(prayer) {
     return getPrayerById(prayer_id)
 }
 
+function deletePrayer(id) {
+    return db('prayers').where('prayer_id', id).del();
+}
+
 module.exports = {
     getAllPrayers,
     getPrayerById,
     addPrayer,
+    deletePrayer
 }

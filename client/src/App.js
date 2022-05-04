@@ -14,6 +14,7 @@ import Settings from './components/Settings';
 import NewCalling from './components/NewCalling';
 import EditCalling from './components/EditCalling';
 import AddPrayer from './components/Prayers/AddPrayers';
+import EditPrayer from './components/Prayers/EditPrayers';
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
           <Route path='/recentlyspake' element={<RecentlySpake/>}></Route>
           <Route path='/prayerlist' element={<PrayerList/>}></Route>
           <Route path='/prayerlist/add' element={<AddPrayer/>}></Route>
+          <Route path='/prayerlist/edit/:id' element={<EditPrayer/>}></Route>
           <Route path='/settings' element={<Settings/>}></Route>
           <Route path='/newcalling' element={<NewCalling/>}></Route>
           <Route path='/editcalling' element={<EditCalling/>}></Route>

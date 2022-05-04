@@ -1,7 +1,8 @@
 import React from "react";
 import { useNavigate } from "react-router";
-import { useState } from "react";
 import axios from "axios";
+import { useState, useEffect } from "react";
+import { useParams } from "react-router";
 
 const initialFormValues = {
   prayer_name_opening: "",
@@ -9,9 +10,11 @@ const initialFormValues = {
   prayer_date: "",
 };
 
-export default function AddPrayer() {
+export default function EditCustomer(props) {
+  let params = useParams();
   const [prayer, setPrayer] = useState([]);
   const [formValues, setFormValues] = useState(initialFormValues);
+
   const navigate = useNavigate();
   const prayerRoute = () => {
     navigate("/prayerlist");
@@ -26,16 +29,25 @@ export default function AddPrayer() {
     };
     console.log(newForm);
     axios
-      .post(`http://localhost:9000/api/prayers`, newForm)
+      .put(`http://localhost:9000/api/prayers/${params.id}`, newForm)
       .then((res) => {
-        setPrayer([res.data, prayer]);
-        setFormValues(initialFormValues);
-        console.log(res.data);
+        prayer([res.data, prayer]);
       })
-      .catch((err) => {
-        console.log(`ERROR: ${err}`);
-      });
+      .then((res) => {
+        setFormValues(initialFormValues);
+      })
+      .catch((err) => console.log(err));
   };
+  // axios
+  //   .post(`http://localhost:9000/api/prayers`, newForm)
+  //   .then((res) => {
+  //     setPrayer([res.data, prayer]);
+  //     setFormValues(initialFormValues);
+  //     console.log(res.data);
+  //   })
+  //   .catch((err) => {
+  //     console.log(`ERROR: ${err}`);
+  //   });
 
   const updateForm = (name, value) => {
     setFormValues({ ...formValues, [name]: value });
@@ -52,26 +64,25 @@ export default function AddPrayer() {
     submitForm();
   };
 
-//   const allPrayers = axios
-//     .get(`http://localhost:9000/api/prayers`)
-//     .then((res) => {
-//       return res.data;
-//     })
-//     .catch((err) => console.err(`ERROR: ${err}`));
+  useEffect(() => {
+    let id = params.id;
+    console.log(id);
+    getCustomerById(id);
+  }, []);
 
-//   const patchRequest = (prayer_id) => {
-//     axios
-//       .put(`http://localhost:9000/api/prayers/${prayer_id}`)
-//       .then((res) => {
-//         // setFormValues(allPrayers ? prayer_id = {id: formValues.prayer_id});
-//       })
-//       .catch((err) => console.log(err));
-//   };
+  const getCustomerById = (id) => {
+    axios
+      .get(`http://localhost:9000/api/prayers/${id}`)
+      .then((res) => {
+        setFormValues(res.data);
+      })
+      .catch((err) => console.log(err));
+  };
 
   return (
     <div>
       <button onClick={prayerRoute}>Back</button>
-        <h1>ADD</h1>
+      <h1>EDIT</h1>
       <form className="form container" onSubmit={onSubmit}>
         <div className="form-group inputs">
           <label>
@@ -81,7 +92,7 @@ export default function AddPrayer() {
               type="text"
               placeholder="Type in a name ya chump!"
               maxLength="30"
-              value={prayer.prayer_name_opening}
+              value={formValues.prayer_name_opening}
               onChange={onChange}
             />
           </label>
@@ -92,7 +103,7 @@ export default function AddPrayer() {
               name="prayer_name_closing"
               type="text"
               placeholder="Type in an name ya chump!"
-              value={prayer.prayer_name_closing}
+              value={formValues.prayer_name_closing}
               onChange={onChange}
             />
           </label>
@@ -102,7 +113,7 @@ export default function AddPrayer() {
               name="prayer_date"
               type="date"
               placeholder="Type in an date ya chump!"
-              value={prayer.prayer_date}
+              value={formValues.prayer_date}
               onChange={onChange}
             />
           </label>
