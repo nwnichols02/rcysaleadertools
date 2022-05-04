@@ -43,7 +43,7 @@ export default function PrayerList() {
       </nav>
       <div className="tableContainer">
         <AllPrayers allPrayers={prayers} />
-        <EditPrayers allPrayers={prayers} />
+        {/* <EditPrayers allPrayers={prayers} /> */}
       </div>
     </div>
   );

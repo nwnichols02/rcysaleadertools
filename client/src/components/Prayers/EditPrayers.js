@@ -12,7 +12,6 @@ const initialFormValues = {
 
 export default function EditCustomer(props) {
   let params = useParams();
-  const [prayer, setPrayer] = useState([]);
   const [formValues, setFormValues] = useState(initialFormValues);
 
   const navigate = useNavigate();
@@ -27,27 +26,16 @@ export default function EditCustomer(props) {
       prayer_date: formValues.prayer_date,
       //   checkbox: prayer.checkbox,
     };
-    console.log(newForm);
     axios
       .put(`http://localhost:9000/api/prayers/${params.id}`, newForm)
       .then((res) => {
-        prayer([res.data, prayer]);
+        setFormValues([res.data]);
       })
       .then((res) => {
         setFormValues(initialFormValues);
       })
       .catch((err) => console.log(err));
   };
-  // axios
-  //   .post(`http://localhost:9000/api/prayers`, newForm)
-  //   .then((res) => {
-  //     setPrayer([res.data, prayer]);
-  //     setFormValues(initialFormValues);
-  //     console.log(res.data);
-  //   })
-  //   .catch((err) => {
-  //     console.log(`ERROR: ${err}`);
-  //   });
 
   const updateForm = (name, value) => {
     setFormValues({ ...formValues, [name]: value });
@@ -66,7 +54,6 @@ export default function EditCustomer(props) {
 
   useEffect(() => {
     let id = params.id;
-    console.log(id);
     getCustomerById(id);
   }, []);
 
