@@ -1,9 +1,9 @@
-import React from "react";
 import { useNavigate } from "react-router";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import AllPrayers from "./AllPrayers";
 import EditPrayers from './EditPrayers';
+import PrayersSearch from "./PrayersSearch";
 
 export default function PrayerList() {
   const [prayers, getPrayers] = useState([]);
@@ -37,6 +37,7 @@ export default function PrayerList() {
   return (
     <div>
       <button onClick={homeRoute}>Home</button>
+      {/* <PrayersSearch allPrayers={prayers}/> */}
       <h1>PrayerList page</h1>
       <nav className="prayernavbtns">
         <button onClick={addPrayerRoute}>Add Prayers</button>
