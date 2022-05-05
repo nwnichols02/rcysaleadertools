@@ -14,8 +14,13 @@ async function addAgenda(agenda) {
     return getAgendaById(agenda_id)
 }
 
+function deleteAgenda(id) {
+    return db('agendas').where('agenda_id', id).del();
+}
+
 module.exports = {
     getAllAgendas,
     getAgendaById,
     addAgenda,
+    deleteAgenda
 }
