@@ -29,6 +29,7 @@ export default function Home(){
             <nav>
                 <img/>
                 <h4>Welcome user.name to RCYSA Leader Tools</h4>
+                <a href={prayerRoute} onClick={prayerRoute}>Prayerzzz</a>
                 <button onClick={() => setOpenModal(true)}>Logout</button>
                 {openModal && <LogoutModal closeModal={setOpenModal}/>}
             </nav>

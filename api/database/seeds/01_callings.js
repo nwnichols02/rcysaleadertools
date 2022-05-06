@@ -1,0 +1,98 @@
+/**
+ * @param { import("knex").Knex } knex
+ * @returns { Promise<void> }
+ */
+ exports.seed = function (knex) {
+    // Deletes ALL existing entries
+    return knex("callings").truncate()
+      // .del()
+      .then(function () {
+        return knex("callings").insert([
+          {
+            first_name: 'joe',
+            last_name: 'johnson',
+            name_of_interviewer: 'Bro H.',
+            calling_issued_date: '2022-01-01',
+            calling_assigned: 'sports committee',
+            sustained_date: '2022-01-02',
+            set_apart_date: '2022-01-02',
+            notes: 'no notes needed',
+            bishopric_approval: true,
+            set_appointment: true,
+            calling_accepted: true,
+            calling_declined: true,
+            sustained: true,
+            set_apart: true,
+            release_from_current_calling: true,
+            release_from_current_calling_name: 'FHE committee',
+            updated_lcr: false,
+            require_bishop: false,
+            completed: false,
+        },
+        {
+            first_name: 'susy',
+            last_name: 'john',
+            name_of_interviewer: 'Bro O.',
+            calling_issued_date: '2022-02-01',
+            calling_assigned: 'missionary committee',
+            sustained_date: '',
+            set_apart_date: '',
+            notes: 'no notes needed at all',
+            bishopric_approval: true,
+            set_appointment: true,
+            calling_accepted: true,
+            calling_declined: false,
+            sustained: false,
+            set_apart: false,
+            release_from_current_calling: false,
+            release_from_current_calling_name: '',
+            updated_lcr: false,
+            require_bishop: false,
+            completed: false,
+        },
+        {
+            first_name: 'henry',
+            last_name: 'bentley',
+            name_of_interviewer: 'Bishop',
+            calling_issued_date: '2022-03-01',
+            calling_assigned: 'FHE committee',
+            sustained_date: '2022-01-02',
+            set_apart_date: '',
+            notes: 'need to set apart',
+            bishopric_approval: true,
+            set_appointment: true,
+            calling_accepted: true,
+            calling_declined: false,
+            sustained: true,
+            set_apart: false,
+            release_from_current_calling: false,
+            release_from_current_calling_name: '',
+            updated_lcr: false,
+            require_bishop: false,
+            completed: false,
+        },
+        {
+            first_name: 'Jerry',
+            last_name: 'Stein',
+            name_of_interviewer: 'Bro H.',
+            calling_issued_date: '2022-04-01',
+            calling_assigned: 'ward visits committee',
+            sustained_date: '',
+            set_apart_date: '',
+            notes: 'did not accept calling',
+            bishopric_approval: true,
+            set_appointment: true,
+            calling_accepted: false,
+            calling_declined: true,
+            sustained: false,
+            set_apart: false,
+            release_from_current_calling: false,
+            release_from_current_calling_name: '',
+            updated_lcr: false,
+            require_bishop: false,
+            completed: true,
+          },
+        ]);
+      });
+  };
+  

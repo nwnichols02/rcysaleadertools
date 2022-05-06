@@ -10,6 +10,7 @@ const prayersRouter = require('./routes/prayers');
 const agendasRouter = require('./routes/agendas');
 const talksRouter = require('./routes/talks');
 const newMemberRouter = require('./routes/newMembers');
+const callingRouter = require('./routes/callings');
 
 const app = express();
 
@@ -29,6 +30,7 @@ app.use('/api/prayers', prayersRouter);
 app.use('/api/agendas', agendasRouter);
 app.use('/api/talks', talksRouter);
 app.use('/api/new-members', newMemberRouter);
+app.use('/api/callings', callingRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
