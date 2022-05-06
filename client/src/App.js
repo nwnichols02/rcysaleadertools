@@ -23,18 +23,18 @@ function App() {
       <header className="App-header">
         <Routes>
           <Route path='/' element={<Login/>}></Route>
-          <Route path='/home' element={<Home/>}></Route>
-          <Route path='/callings' element={<Callings/>}></Route>
-          <Route path='/agendas' element={<Agendas/>}></Route>
-          <Route path='/signup' element={<SignUp/>}></Route>
-          <Route path='/recentlyspake' element={<RecentlySpake/>}></Route>
-          <Route path='/prayerlist' element={<PrayerList/>}></Route>
-          <Route path='/prayerlist/add' element={<AddPrayer/>}></Route>
-          <Route path='/prayerlist/edit/:id' element={<EditPrayer/>}></Route>
-          <Route path='/prayerlist/delete/:id' element={<DeletePrayerModal/>}></Route>
-          <Route path='/settings' element={<Settings/>}></Route>
-          <Route path='/newcalling' element={<NewCalling/>}></Route>
-          <Route path='/editcalling' element={<EditCalling/>}></Route>
+          <Route path='/Home' element={<Home/>}></Route>
+          <Route path='/Callings' element={<Callings/>}></Route>
+          <Route path='/Agendas' element={<Agendas/>}></Route>
+          <Route path='/SignUp' element={<SignUp/>}></Route>
+          <Route path='/Talks' element={<RecentlySpake/>}></Route>
+          <Route path='/Prayers' element={<PrayerList/>}></Route>
+          <Route path='/Prayers/add' element={<AddPrayer/>}></Route>
+          <Route path='/Prayers/edit/:id' element={<EditPrayer/>}></Route>
+          <Route path='/Prayers/delete/:id' element={<DeletePrayerModal/>}></Route>
+          <Route path='/Settings' element={<Settings/>}></Route>
+          <Route path='/Callings/new' element={<NewCalling/>}></Route>
+          <Route path='/Callings/edit/:id' element={<EditCalling/>}></Route>
         </Routes>
       </header>
     </div>

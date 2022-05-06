@@ -9,20 +9,18 @@ const AllPrayers = (props) => {
   const navigate = useNavigate();
 
   const editPrayerRoute = () => {
-    navigate("/prayerlist/edit/:id");
+    navigate("/Prayers/edit/:id");
   };
 
   const {search} = window.location;
     const query = new URLSearchParams(search).get('s')
     
     const filterPrayers = (prayers, query) => {
-        console.log(props.allPrayers)
         if(!query) {
             return prayers
         } 
         return prayers.filter((prayer) => {
             const prayerName = props.allPrayers.prayer_name_opening;
-            console.log(prayerName)
             return prayerName.includes(query)
         })
     }

@@ -10,13 +10,13 @@ export default function PrayerList() {
 
   const navigate = useNavigate();
   const homeRoute = () => {
-    navigate("/home");
+    navigate("/Home");
   };
   const addPrayerRoute = () => {
-    navigate("/prayerlist/add");
+    navigate("/Prayers/add");
   };
   const editPrayerRoute = () => {
-    navigate("/prayerlist/edit/:id");
+    navigate("/Prayers/edit/:id");
   };
   const url = "http://localhost:9000";
 

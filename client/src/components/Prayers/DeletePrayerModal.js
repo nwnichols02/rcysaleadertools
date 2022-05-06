@@ -8,7 +8,7 @@ export default function DeletePrayerModal ({closeModal}){
     let params = useParams();
     const navigate = useNavigate();
     const prayerRoute = () => {
-        navigate('/prayerlist')
+        navigate('/Prayers')
     }
 
     const getAllPrayers = () => {

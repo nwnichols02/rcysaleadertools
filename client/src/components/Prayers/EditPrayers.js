@@ -16,7 +16,7 @@ export default function EditCustomer(props) {
 
   const navigate = useNavigate();
   const prayerRoute = () => {
-    navigate("/prayerlist");
+    navigate("/Prayers");
   };
 
   const submitForm = () => {

@@ -4,13 +4,13 @@ import { useNavigate } from "react-router";
 export default function Callings() {
   const navigate = useNavigate();
   const homeRoute = () => {
-      navigate('/home')
+      navigate('/Home')
   }
   const newCallingRoute = () => {
-      navigate('/newcalling')
+      navigate('/Callings/new')
   }
   const editCallingRoute = () => {
-      navigate('/editcalling')
+      navigate('/Callings/edit/:id')
   }
   return (
     <div>

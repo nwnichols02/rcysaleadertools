@@ -4,7 +4,7 @@ import { useNavigate } from "react-router";
 export default function Settings(){
     const navigate = useNavigate();
     const homeRoute = () => {
-        navigate('/home')
+        navigate('/Home')
     }
     return(
         <div>

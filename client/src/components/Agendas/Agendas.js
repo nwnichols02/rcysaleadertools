@@ -12,7 +12,7 @@ export default function Agendas(){
 
     const navigate = useNavigate();
     const homeRoute = () => {
-        navigate('/home')
+        navigate('/Home')
     }
 
     const url = "http://localhost:9000";
