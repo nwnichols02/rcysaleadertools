@@ -4,6 +4,7 @@ import { useNavigate } from "react-router";
 import Modal from "../NewAgendaModal";
 import axios from "axios";
 import AllAgendas from "./AllAgendas";
+import SideBar from "../SideBar";
 
 export default function Agendas(){
 
@@ -34,6 +35,7 @@ export default function Agendas(){
 
     return(
         <div>
+            <SideBar/>
             <div>
             <button onClick={homeRoute}>Home</button>
             <h1>Agendas page</h1>

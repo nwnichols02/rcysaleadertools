@@ -15,8 +15,19 @@ import {
   useBreakpointValue,
 } from "@chakra-ui/react";
 
+import {
+  Input,
+  InputGroup,
+  HStack,
+  Checkbox,
+  InputRightElement,
+  useColorModeValue,
+  Link,
+} from "@chakra-ui/react";
+
 export default function Login() {
   const [input, setInput] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
 
   const handleInputChange = (e) => setInput(e.target.value);
 
@@ -32,84 +43,92 @@ export default function Login() {
 
   return (
     <Stack minH={"100vh"} direction={{ base: "column", md: "row" }}>
-      <Flex p={8} flex={1} align={"center"} justify={"center"}>
+      <Flex
+        p={8}
+        flex={1}
+        align={"center"}
+        justify={"center"}
+        bg={useColorModeValue("gray.50", "gray.800")}
+      >
         <Stack spacing={6} w={"full"} maxW={"lg"}>
-          <Heading fontSize={{ base: "3xl", md: "4xl", lg: "5xl" }}>
-            <Text
-              as={"span"}
-              position={"relative"}
-              _after={{
-                content: "''",
-                width: "full",
-                height: useBreakpointValue({ base: "20%", md: "30%" }),
-                position: "absolute",
-                bottom: 1,
-                left: 0,
-                bg: "#f45377",
-                zIndex: -1,
-              }}
-            >
-              Rose Creek YSA
-            </Text>
-            <br />{" "}
-            <Text color={"#f45377"} as={"span"}>
-              Leader Tools
-            </Text>{" "}
-          </Heading>
-          <Text fontSize={{ base: "md", lg: "lg" }} color={"gray.500"}>
-            An intelligent program that assists the building of Zion.
-          </Text>
-          <FormControl>
-            <FormLabel htmlFor="username">Username</FormLabel>
-            <Box
-            border={'2px'}
-            borderRadius='full' px='2' ml='2' width={'50%'}
-            >
-            <input id="username" type="text" value={input}
-        onChange={handleInputChange}/>
-            </Box>
-            {!isError ? (
-              <FormHelperText>
-                Enter your Username to login.
-              </FormHelperText>
-            ) : (
-              <FormErrorMessage>Username is required.</FormErrorMessage>
-            )}
-          </FormControl>
-          <FormControl>
-            <FormLabel htmlFor="password">Password</FormLabel>
-            <Box
-            border={'2px'}
-            borderRadius='full' px='2' ml='2' width={'50%'}
-            >
-            <input id="username" type="text" value={input}
-        onChange={handleInputChange}/>
-            </Box>
-            {!isError ? (
-              <FormHelperText>
-                Enter your Password to login.
-              </FormHelperText>
-            ) : (
-              <FormErrorMessage>Password is required.</FormErrorMessage>
-            )}
-          </FormControl>
-          <Stack direction={{ base: "column", md: "row" }} spacing={4}>
-            <Button
-              size={"lg"}
-              rounded={"full"}
-              bg={"#f45377"}
-              color={"white"}
-              _hover={{
-                bg: "red.500",
-              }}
-              onClick={loginRoute}
-            >
-              Login
-            </Button>
-            <Button rounded={"full"} size={"lg"} onClick={signUpRoute}>
-              SignUp
-            </Button>
-          </Stack>
+            <Stack spacing={8} mx={"auto"} maxW={"lg"} py={12} px={6}>
+              <Stack align={"center"}>
+                <Heading fontSize={"4xl"} textAlign={"center"}>
+                  <Text
+                    as={"span"}
+                    position={"relative"}
+                    _after={{
+                      content: "''",
+                      width: "full",
+                      height: useBreakpointValue({ base: "20%", md: "30%" }),
+                      position: "absolute",
+                      bottom: 1,
+                      left: 0,
+                      bg: "#f45377",
+                      zIndex: -1,
+                    }}
+                  >
+                    Rose Creek YSA
+                  </Text>
+                  <br />{" "}
+                  <Text color={"#f45377"} as={"span"}>
+                    Leader Tools
+                  </Text>{" "}
+                </Heading>
+                <Text fontSize={{ base: "md", lg: "lg" }} color={"gray.500"}>
+                  An intelligent program that assists the building of Zion.
+                </Text>
+              </Stack>
+              <Box
+                rounded={"lg"}
+                bg={useColorModeValue("white", "gray.700")}
+                boxShadow={"lg"}
+                p={8}
+              >
+                <Stack spacing={4}>
+                  <FormControl id="email" isRequired>
+                    <FormLabel>Email address</FormLabel>
+                    <Input type="email" />
+                  </FormControl>
+                  <FormControl id="password" isRequired>
+                    <FormLabel>Password</FormLabel>
+                    <InputGroup>
+                      <Input type={showPassword ? "text" : "password"} />
+                      <InputRightElement h={"full"}>
+                        <Button
+                          variant={"ghost"}
+                          onClick={() =>
+                            setShowPassword((showPassword) => !showPassword)
+                          }
+                          >
+                          {/* {showPassword ? <ViewIcon /> : <ViewOffIcon />} */}
+                        </Button>
+                      </InputRightElement>
+                    </InputGroup>
+                  </FormControl>
+                  <Stack spacing={10}>
+                    <Stack
+                      direction={{ base: "column", sm: "row" }}
+                      align={"start"}
+                      justify={"space-between"}
+                      >
+                      <Checkbox>Remember me</Checkbox>
+                      <Link color={"blue.400"} onClick={signUpRoute}>Forgot password?</Link>
+                    </Stack>
+                    <Button
+                      bg={"blue.400"}
+                      color={"white"}
+                      _hover={{
+                        bg: "blue.500",
+                      }}
+                      onClick={loginRoute}
+                    >
+                      Sign in
+                    </Button>
+                  </Stack>
+                </Stack>
+              </Box>
+            </Stack>
         </Stack>
       </Flex>
       <Flex flex={1} boxSize={"100vh"}>
@@ -149,6 +168,6 @@ export default function Login() {
     //         </form>
     //     </div>
     //     </div>
-    // </div>
+    // </div> */}
   );
 }

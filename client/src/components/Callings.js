@@ -1,5 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router";
+import SideBar from "./SideBar";
 
 export default function Callings() {
   const navigate = useNavigate();
@@ -14,6 +15,7 @@ export default function Callings() {
   }
   return (
     <div>
+      <SideBar/>
         <button onClick={homeRoute}>Home</button>
       <h1>Callings page</h1>
       <header>

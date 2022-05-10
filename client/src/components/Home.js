@@ -5,21 +5,32 @@ import { useNavigate } from "react-router";
 // import SidebarContent from "./Home-SideBar";
 import Sidebar from "./SideBar";
 // import Header from "./Header";
+
 import {
-  IconButton,
-  Box,
-  CloseButton,
+  Container,
+  Stack,
   Flex,
+  Box,
+  Heading,
+  Text,
+  Button,
+  Image,
   Icon,
+  IconButton,
+  createIcon,
+  IconProps,
   useColorModeValue,
+} from "@chakra-ui/react";
+
+import {
+  CloseButton,
   Link,
   Drawer,
   DrawerContent,
-  Text,
   useDisclosure,
   BoxProps,
   FlexProps,
-  useBreakpointValue
+  useBreakpointValue,
 } from "@chakra-ui/react";
 
 //   import {
@@ -38,9 +49,8 @@ import {
 //     icon: IconType;
 //   }
 
-const smVariant = { navigation: 'drawer', navigationButton: true }
-const mdVariant = { navigation: 'sidebar', navigationButton: false }
-
+const smVariant = { navigation: "drawer", navigationButton: true };
+const mdVariant = { navigation: "sidebar", navigationButton: false };
 
 export default function Home() {
   const [openModal, setOpenModal] = useState(false);
@@ -74,227 +84,127 @@ export default function Home() {
     { name: "Talks" },
     { name: "Settings" },
   ];
-  const [isSidebarOpen, setSidebarOpen] = useState(false)
-  const variants = useBreakpointValue({ base: smVariant, md: mdVariant })
+  const [isSidebarOpen, setSidebarOpen] = useState(false);
+  const variants = useBreakpointValue({ base: smVariant, md: mdVariant });
 
-  const toggleSidebar = () => setSidebarOpen(!isSidebarOpen)
-
+  const toggleSidebar = () => setSidebarOpen(!isSidebarOpen);
 
   return (
-    <>
-    <Sidebar
-        // variant={variants?.navigation}
-        // isOpen={isSidebarOpen}
-        // onClose={toggleSidebar}
-      />
-      {/* <Box ml={!variants?.navigationButton && 200}>
-        <Header
-          showSidebarButton={variants?.navigationButton}
-          onShowSidebar={toggleSidebar}
-        />
-      </Box> */}
-    </>
-
-
-    // <Box minH="100vh" bg={useColorModeValue("gray.100", "gray.900")}>
-    //   <Drawer
-    //     autoFocus={false}
-    //     isOpen={isOpen}
-    //     placement="left"
-    //     onClose={onClose}
-    //     returnFocusOnClose={false}
-    //     onOverlayClick={onClose}
-    //     size="full"
-    //   >
-    //     <DrawerContent>
-    //       <SidebarContent onClose={onClose} />
-    //       <Box>
-    //           <button>Home</button>
-    //       </Box>
-    //     </DrawerContent>
-    //   </Drawer>
-    // </Box>
-
-    //
-    //   <Box
-    //     bg={useColorModeValue('white', 'gray.900')}
-    //     borderRight="1px"
-    //     borderRightColor={useColorModeValue('gray.200', 'gray.700')}
-    //     w={{ base: 'full', md: 60 }}
-    //     pos="fixed"
-    //     h="full"
-    //     {...rest}>
-    //     <Flex h="20" alignItems="center" mx="8" justifyContent="space-between">
-    //       <Text fontSize="2xl" fontFamily="monospace" fontWeight="bold">
-    //         Logo
-    //       </Text>
-    //       <CloseButton display={{ base: 'flex', md: 'none' }} onClick={onClose} />
-    //     </Flex>
-
-    //     <NavItem key={'Home'} onClick={homeRoute}>
-    //         <Link to={'/Home'}>
-    //         Home
-    //         </Link>
-    //     <Flex
-    //       align="center"
-    //       p="4"
-    //       mx="4"
-    //       borderRadius="lg"
-    //       role="group"
-    //       cursor="pointer"
-    //       _hover={{
-    //         bg: 'cyan.400',
-    //         color: 'white',
-    //       }}
-    //     //   {...rest}
-    //       />
-    //     </NavItem>
-    //     <NavItem key={'Agendas'} onClick={agendasRoute}>
-    //         Agendas
-    //     </NavItem>
-    //     <NavItem key={'Callings'} onClick={callingsRoute}>
-    //         Callings
-    //     </NavItem>
-    //     <NavItem key={'Prayers'} onClick={prayersRoute}>
-    //         Prayers
-    //     </NavItem>
-    //     <NavItem key={'Talks'} onClick={talksRoute}>
-    //         Talks
-    //     </NavItem>
-    //     <NavItem key={'Settings'} onClick={settingsRoute}>
-    //         Settings
-    //     </NavItem>
-
-    //   </Box>
-    //   <Drawer
-    //     autoFocus={false}
-    //     isOpen={isOpen}
-    //     placement="left"
-    //     onClose={onClose}
-    //     returnFocusOnClose={false}
-    //     onOverlayClick={onClose}
-    //     size="full">
-    //     <DrawerContent>
-    //       <SidebarContent onClose={onClose} />
-    //     </DrawerContent>
-    //   </Drawer>
-    //   {/* mobilenav  */}
-    //   {/* <MobileNav display={{ base: 'flex', md: 'none' }} onOpen={onOpen} /> */} */}
-    //   <Box ml={{ base: 0, md: 60 }} p="4">
-    //     {/* {children} */}
-    //   </Box>
-    // </Box>
-
-    // <div>
-    //     <nav>
-    //         <img/>
-    //         <h4>Welcome user.name to RCYSA Leader Tools</h4>
-    //         <a href={prayerRoute} onClick={prayerRoute}>Prayerzzz</a>
-    //         <button onClick={() => setOpenModal(true)}>Logout</button>
-    //         {openModal && <LogoutModal closeModal={setOpenModal}/>}
-    //     </nav>
-    //     <div className="top-navbar">
-    //         <button onClick={prayerRoute}>Prayers List</button>
-    //         <button onClick={recentlySpakeRoute}>Recently Spoke</button>
-    //         {/* <button>New Members</button> */}
-    //     </div>
-    //     <div className="grid-navbar">
-    //         <button onClick={agendasRoute}>Agendas</button>
-    //         <button onClick={callingsRoute}>Callings</button>
-    //         {/* <button>Interviews</button> */}
-    //         {/* <button>Ordinations</button> */}
-    //         <button onClick={settingsRoute}>Settings</button>
-    //     </div>
-    // </div>
+    <Container maxW={"7xl"}>
+      <Sidebar/>
+      <Stack
+        align={"center"}
+        spacing={{ base: 8, md: 10 }}
+        py={{ base: 20, md: 28 }}
+        direction={{ base: "column", md: "row" }}
+      >
+        <Stack flex={1} spacing={{ base: 5, md: 10 }}>
+          <Heading
+            lineHeight={1.1}
+            fontWeight={600}
+            fontSize={{ base: "3xl", sm: "4xl", lg: "6xl" }}
+          >
+            <Text
+              as={"span"}
+              position={"relative"}
+              _after={{
+                content: "''",
+                width: "full",
+                height: "30%",
+                position: "absolute",
+                bottom: 1,
+                left: 0,
+                bg: "red.400",
+                zIndex: -1,
+              }}
+            >
+              Write once,
+            </Text>
+            <br />
+            <Text as={"span"} color={"red.400"}>
+              use everywhere!
+            </Text>
+          </Heading>
+          <Text color={"gray.500"}>
+            Snippy is a rich coding snippets app that lets you create your own
+            code snippets, categorize them, and even sync them in the cloud so
+            you can use them anywhere. All that is free!
+          </Text>
+          <Stack
+            spacing={{ base: 4, sm: 6 }}
+            direction={{ base: "column", sm: "row" }}
+          >
+            <Button
+              rounded={"full"}
+              size={"lg"}
+              fontWeight={"normal"}
+              px={6}
+              colorScheme={"red"}
+              bg={"red.400"}
+              _hover={{ bg: "red.500" }}
+            >
+              Get started
+            </Button>
+            <Button
+              rounded={"full"}
+              size={"lg"}
+              fontWeight={"normal"}
+              px={6}
+              // leftIcon={<PlayIcon h={4} w={4} color={"gray.300"} />}
+            >
+              How It Works
+            </Button>
+          </Stack>
+        </Stack>
+        <Flex
+          flex={1}
+          justify={"center"}
+          align={"center"}
+          position={"relative"}
+          w={"full"}
+        >
+          {/* <Blob
+            w={"150%"}
+            h={"150%"}
+            position={"absolute"}
+            top={"-20%"}
+            left={0}
+            zIndex={-1}
+            color={useColorModeValue("red.50", "red.400")}
+          /> */}
+          <Box
+            position={"relative"}
+            height={"300px"}
+            rounded={"2xl"}
+            boxShadow={"2xl"}
+            width={"full"}
+            overflow={"hidden"}
+          >
+            <IconButton
+              aria-label={"Play Button"}
+              variant={"ghost"}
+              _hover={{ bg: "transparent" }}
+              // icon={<PlayIcon w={12} h={12} />}
+              size={"lg"}
+              color={"white"}
+              position={"absolute"}
+              left={"50%"}
+              top={"50%"}
+              transform={"translateX(-50%) translateY(-50%)"}
+            />
+            {/* <Image
+              alt={"Hero Image"}
+              fit={"cover"}
+              align={"center"}
+              w={"100%"}
+              h={"100%"}
+              src={
+                "https://images.unsplash.com/photo-1499951360447-b19be8fe80f5?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=800&q=80"
+              }
+            /> */}
+          </Box>
+        </Flex>
+      </Stack>
+    </Container>
   );
 }
-
-// interface SidebarProps extends BoxProps {
-//     onClose: () => void;
-//   }
-// const LinkItems = [
-//     {name: 'Home' },
-//     {name: 'Agendas'},
-//     {name: 'Callings'},
-//     {name: 'Prayers'},
-//     {name: 'Talks'},
-//     {name: 'Settings'},
-// ];
-//   const SidebarContent = ({ onClose, ...rest }: SidebarProps) => {
-//     const navigate = useNavigate();
-
-//     const homeRoute = () => {
-//         navigate('/Home')
-//     }
-//     const callingsRoute = () => {
-//         navigate('/Callings')
-//     }
-//     const agendasRoute = () => {
-//         navigate('/Agendas')
-//     }
-//     const talksRoute = () => {
-//         navigate('/Talks')
-//     }
-//     const prayersRoute = () => {
-//         navigate('/Prayers')
-//     }
-//     const settingsRoute = () => {
-//         navigate('/Settings')
-//     }
-//     return (
-
-//     );
-//   };
-
-//   interface NavItemProps extends FlexProps {
-//     icon: IconType;
-//     children: ReactText;
-//   }
-//   const NavItem = ({children}) => {
-//     return (
-//     //   <Link to={"#"} style={{ textDecoration: 'none' }} _focus={{ boxShadow: 'none' }} >
-
-//     //       {/* {icon && (
-//     //         <Icon
-//     //           mr="4"
-//     //           fontSize="16"
-//     //           _groupHover={{
-//     //             color: 'white',
-//     //           }}
-//     //           as={icon}
-//     //         />
-//     //       )} */}
-//     //       {children}
-//     //     </Flex>
-//     //   </Link>
-//     );
-//   };
-
-//   interface MobileProps extends FlexProps {
-//     onOpen: () => void;
-//   }
-//   const MobileNav = ({ onOpen, ...rest }: MobileProps) => {
-//     return (
-//       <Flex
-//         ml={{ base: 0, md: 60 }}
-//         px={{ base: 4, md: 24 }}
-//         height="20"
-//         alignItems="center"
-//         bg={useColorModeValue('white', 'gray.900')}
-//         borderBottomWidth="1px"
-//         borderBottomColor={useColorModeValue('gray.200', 'gray.700')}
-//         justifyContent="flex-start"
-//         {...rest}>
-//         <IconButton
-//           variant="outline"
-//           onClick={onOpen}
-//           aria-label="open menu"
-//         //   icon={<FiMenu />}
-//         />
-
-//         <Text fontSize="2xl" ml="8" fontFamily="monospace" fontWeight="bold">
-//           Logo
-//         </Text>
-//       </Flex>
-//     );
-//   };

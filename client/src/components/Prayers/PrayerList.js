@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import AllPrayers from "./AllPrayers";
 import EditPrayers from './EditPrayers';
 import PrayersSearch from "./PrayersSearch";
+import SideBar from "../SideBar";
 
 export default function PrayerList() {
   const [prayers, getPrayers] = useState([]);
@@ -36,6 +37,7 @@ export default function PrayerList() {
 
   return (
     <div>
+      <SideBar/>
       <button onClick={homeRoute}>Home</button>
       {/* <PrayersSearch allPrayers={prayers}/> */}
       <h1>PrayerList page</h1>
