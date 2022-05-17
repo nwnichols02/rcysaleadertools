@@ -25,14 +25,12 @@ export default function AddPrayer() {
       prayer_date: formValues.prayer_date,
       //   checkbox: prayer.checkbox,
     };
-    console.log(newForm);
     axios
       .post(`http://localhost:9000/api/prayers`, newForm)
       .then((res) => {
         setPrayer([res.data, prayer]);
         setFormValues(initialFormValues);
         navigate('/prayerlist')
-        console.log(res.data);
       })
       .catch((err) => {
         console.log(`ERROR: ${err}`);

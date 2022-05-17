@@ -118,11 +118,11 @@ export default function Home() {
                 zIndex: -1,
               }}
             >
-              Write once,
+              Welcome
             </Text>
             <br />
             <Text as={"span"} color={"red.400"}>
-              use everywhere!
+              To Rose Creek YSA Tools
             </Text>
           </Heading>
           <Text color={"gray.500"}>
