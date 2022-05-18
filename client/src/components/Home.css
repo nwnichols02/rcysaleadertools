@@ -1,0 +1,12 @@
+.bg-gray-800 h-5{
+    background-color: gray;
+}
+
+.title {
+    display: flex;
+    justify-content: left;
+    margin: 18px;
+    font-size: 100px;
+    font-weight: bold;
+    /* font-size: 500px; */
+}

@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router";
-import SideBar from "./SideBar";
+import Header2 from "./Header2";
 
 export default function Callings() {
   const navigate = useNavigate();
@@ -15,7 +15,7 @@ export default function Callings() {
   }
   return (
     <div>
-      <SideBar/>
+      <Header2/>
         <button onClick={homeRoute}>Home</button>
       <h1>Callings page</h1>
       <header>

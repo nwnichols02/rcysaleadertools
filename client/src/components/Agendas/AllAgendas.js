@@ -1,31 +1,48 @@
 import React from 'react';
+import {
+  Container,
+  Center,
+  Stack,
+  Flex,
+  Box,
+  Heading,
+  Text,
+  Button,
+  Divider,
+  Image,
+  Icon,
+  IconButton,
+  createIcon,
+  IconProps,
+  useColorModeValue,
+} from "@chakra-ui/react";
 
 const AllAgendas = (props) => {
   return (
-    <div>
-              {props.allAgendas.map(agenda => {
+    <Box>
+{props.allAgendas.map(agenda => {
           return(
-            <div key={agenda.agenda_id} className="agenda-wrapper">
-              <h2>Date: {agenda.date}</h2>
-              <h3>Opening Prayer: {agenda.opening_prayer}</h3>
-              <h3>Closing Prayer: {agenda.closing_prayer}</h3>
-              <h3>{agenda.opening_hymn}</h3>
-              <h3>{agenda.conducting}</h3>
-              <h3>{agenda.presiding}</h3>
-              <h3>{agenda.releases}</h3>
-              <h3>{agenda.callings}</h3>
-              <h3>{agenda.new_members}</h3>
-              <h3>{agenda.sacrament_hymn}</h3>
-              <h3>{agenda.speaker_1}</h3>
-              <h3>{agenda.speaker_2}</h3>
-              <h3>{agenda.intermediate_hymn}</h3>
-              <h3>{agenda.closing_hymn}</h3>
-              <h3>{agenda.announcements
-              }</h3>
-            </div>
+            <Box key={agenda.agenda_id} className="agenda-wrapper">
+              <Text fontSize={{ base: "md", lg: "lg" }} color={"gray.500"}>Date: {agenda.date}</Text>
+              <Text fontSize={{ base: "md", lg: "lg" }} color={"gray.500"}>Opening Prayer: {agenda.opening_prayer}</Text>
+              <Text fontSize={{ base: "md", lg: "lg" }} color={"gray.500"}>Closing Prayer: {agenda.closing_prayer}</Text>
+              <Text fontSize={{ base: "md", lg: "lg" }} color={"gray.500"}>{agenda.opening_hymn}</Text>
+              <Text fontSize={{ base: "md", lg: "lg" }} color={"gray.500"}>{agenda.conducting}</Text>
+              <Text fontSize={{ base: "md", lg: "lg" }} color={"gray.500"}>{agenda.presiding}</Text>
+              <Text fontSize={{ base: "md", lg: "lg" }} color={"gray.500"}>{agenda.releases}</Text>
+              <Text fontSize={{ base: "md", lg: "lg" }} color={"gray.500"}>{agenda.callings}</Text>
+              <Text fontSize={{ base: "md", lg: "lg" }} color={"gray.500"}>{agenda.new_members}</Text>
+              <Text fontSize={{ base: "md", lg: "lg" }} color={"gray.500"}>{agenda.sacrament_hymn}</Text>
+              <Text fontSize={{ base: "md", lg: "lg" }} color={"gray.500"}>{agenda.speaker_1}</Text>
+              <Text fontSize={{ base: "md", lg: "lg" }} color={"gray.500"}>{agenda.speaker_2}</Text>
+              <Text fontSize={{ base: "md", lg: "lg" }} color={"gray.500"}>{agenda.intermediate_hymn}</Text>
+              <Text fontSize={{ base: "md", lg: "lg" }} color={"gray.500"}>{agenda.closing_hymn}</Text>
+              <Text fontSize={{ base: "md", lg: "lg" }} color={"gray.500"}>{agenda.announcements}</Text>
+            </Box>
           )
         })}
-    </div>
+    </Box>
+
   )
 }
 

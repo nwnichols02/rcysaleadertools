@@ -1,6 +1,6 @@
 import React from "react";
 import { useNavigate } from "react-router";
-import SideBar from "./SideBar";
+import Header2 from "./Header2";
 
 export default function RecentlySpake(){
     const navigate = useNavigate();
@@ -9,7 +9,7 @@ export default function RecentlySpake(){
     }
     return(
         <div>
-            <SideBar/>
+            <Header2/>
             <button onClick={homeRoute}>Home</button>
             <h1>RecentlySpake page</h1>
         </div>
