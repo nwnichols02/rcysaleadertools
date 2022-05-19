@@ -78,20 +78,37 @@ export default function Home() {
   const toggleSidebar = () => setSidebarOpen(!isSidebarOpen);
 
   return (
-    <div className="bg-gray-800 h-5">
+    <div className="bg-gray-800">
       <Header2 />
       {/* <Header /> */}
       {/* <Sidebar/> */}
       <div>
-        <Container maxW='90vw' paddingTop='18px'>
-        <Box  borderRadius='lg' p='160' border='1px'>
-        <h1 className="title">
-          {/* Welcome to Rose Creek YSA  */}
-          <Center>Welcome to Rose Creek YSA Leader Tools</Center>
-        </h1>
-        </Box>
+        <Container maxW="90vw" paddingTop="18px" bg="#f5f5f5">
+          <Box borderRadius="lg" p="160" border="1px">
+            <h1 className="title">
+              {/* Welcome to Rose Creek YSA  */}
+              <Center>Welcome to Rose Creek YSA Leader Tools</Center>
+            </h1>
+          </Box>
         </Container>
-        {/* <button>Begin Here</button> */}
+        <Container maxW="90vw" paddingTop="18px" bg="#f5f5f5">
+          <Flex flexDirection="row" justifyContent="space-between">
+            <Box borderRadius="lg" p="10" w='43vw' border="1px">
+              <h1 className="title"></h1>
+            </Box>
+            <Box borderRadius="lg" p="10" w='43vw' border="1px">
+              <h1 className="title"></h1>
+            </Box>
+          </Flex>
+        </Container>
+        <Container maxW="90vw" paddingTop="18px" bg="#f5f5f5">
+          <Flex flexDirection="row" justifyContent="space-between">
+            <Box borderRadius="lg" p="80" w='90vw' border="1px">
+              <h1 className="title"></h1>
+            </Box>
+          </Flex>
+        </Container>
+        
       </div>
       {/* <div>
         <Image
@@ -104,7 +121,7 @@ export default function Home() {
             "https://images.unsplash.com/photo-1568963116276-951d46efd437?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1350&q=80"
           }
         />
-      </div> */} 
+      </div> */}
       {/* <Grid
         h="200px"
         templateRows="repeat(2, 1fr)"
